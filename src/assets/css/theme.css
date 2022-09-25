@@ -86,7 +86,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: "Poppins", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  /* font-family: 'Courgette', cursive; */
   font-weight: 500;
   line-height: 1.2;
   color: #112D58;
@@ -665,6 +664,18 @@ progress {
 
 @media (min-width: 1540px) {
   .container, .container-sm, .container-md, .container-lg, .container-xl, .container-xxl {
+    max-width: 1480px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container-nav{
+    max-width: 1200px;
+  }
+}
+
+@media (min-width: 1480px) {
+  .container-nav{
     max-width: 1480px;
   }
 }
@@ -17516,10 +17527,10 @@ label {
   position: absolute;
   width: 100%;
   min-height: 100%;
-  object-fit: cover;
-  object-position: center;
   top: 0;
   left: 0;
+  background-size: cover;
+  background-position: center;
   overflow: hidden;
   will-change: transform, opacity, filter;
   -webkit-backface-visibility: hidden;
