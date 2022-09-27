@@ -143,12 +143,9 @@
     justify-content: space-between;
   }
   
-  .navbar-brand {
-    padding-top: -0.046rem;
-    padding-bottom: -0.046rem;
-    margin-right: 1rem;
-    font-size: calc(1.2978rem + 0.5736vw);
-    white-space: nowrap;
+  .navbar-logo {
+    width: 150px;
+    cursor: pointer;
   }
   
   @media (min-width: 1200px) {
