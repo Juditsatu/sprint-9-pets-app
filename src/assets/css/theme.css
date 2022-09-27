@@ -28,13 +28,13 @@
   --bs-white: #fff;
   --bs-gray: #C3C1C8;
   --bs-gray-dark: #616368;
-  --bs-primary: #1F3A63;
+  --bs-primary: #442953;
   --bs-secondary: #4F5665;
   --bs-success: #40975F;
   --bs-info: #3EB8F4;
   --bs-warning: #FFA024;
-  --bs-danger: #F55767;
-  --bs-light: #F9FAFD;
+  --bs-danger: #E94842;
+  --bs-light: #ddd;
   --bs-dark: #1F1534;
   --bs-font-sans-serif: "Poppins", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
@@ -9028,7 +9028,7 @@ fieldset:disabled .btn {
 }
 
 .bg-primary {
-  background-color: #1F3A63 !important;
+  background-color: #1F1534 !important;
 }
 
 .bg-secondary {
@@ -16968,7 +16968,7 @@ label {
 |   Backgrounds
 -----------------------------------------------*/
 .bg-holder {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   min-height: 100%;
   top: 0;
@@ -17011,7 +17011,7 @@ label {
 }
 
 .bg-video {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
   min-height: 100%;
   top: 0;
@@ -17024,6 +17024,13 @@ label {
   backface-visibility: hidden;
   background-repeat: no-repeat;
   z-index: 0;
+}
+
+.overlay {
+  position:absolute;
+  top: 30%;
+  right: 10%;
+  z-index:1;
 }
 
 .bg-holder .bg-video {
