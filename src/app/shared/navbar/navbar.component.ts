@@ -1,5 +1,10 @@
 import { Component } from '@angular/core';
 
+interface MenuItem {
+  route: string;
+  name: string;
+}
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -7,11 +12,17 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
-  // navbarOpen = false;
   public isCollapsed = true;
 
-  // toggleNavbar() {
-  //   this.navbarOpen = !this.navbarOpen;
-  // }
+  menuItems: MenuItem[] = [
+    {
+      route: '/search',
+      name: 'Search sitters'
+    },
+    {
+      route: '/',
+      name: 'About'
+    },
+  ]
 
 }
