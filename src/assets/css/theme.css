@@ -17390,26 +17390,6 @@ label {
   box-shadow: none;
 }
 
-/*-----------------------------------------------
-|   Vertical Line (used in kanban header)
------------------------------------------------*/
-.vertical-line:after {
-  position: absolute;
-  content: "";
-  height: 75%;
-  width: 1px;
-  background: #E1E0E4;
-  right: 0;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-}
-
-.vertical-line.vertical-line-400:after {
-  background-color: #D7D6DA;
-}
-
 /* -------------------------------------------------------------------------- */
 /*                                 Transition                                 */
 /* -------------------------------------------------------------------------- */
@@ -17434,30 +17414,6 @@ label {
 /* -------------------------------------------------------------------------- */
 .min-w-0 {
   min-width: 0;
-}
-
-/* -------------------------------------------------------------------------- */
-/*                                Terms sidebar                               */
-/* -------------------------------------------------------------------------- */
-.terms-sidebar .nav-link {
-  color: #CDCCD1;
-  font-weight: 500;
-  font-family: "Poppins", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-}
-
-.terms-sidebar .nav-link.active {
-  color: #1F3A63;
-}
-
-.card-price {
-  padding-left: .75rem;
-  padding-right: .75rem;
-  text-align: center;
-}
-
-.backdrop {
-  -webkit-backdrop-filter: blur(3px);
-  backdrop-filter: blur(3px);
 }
 
 /*-----------------------------------------------
@@ -17572,70 +17528,6 @@ label {
   transition: opacity 0.15s ease;
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .carousel-control-prev,
-  .carousel-control-next {
-    -webkit-transition: none;
-    -o-transition: none;
-    transition: none;
-  }
-}
-
-.carousel-control-prev:hover, .carousel-control-prev:focus,
-.carousel-control-next:hover,
-.carousel-control-next:focus {
-  color: #112D58;
-  text-decoration: none;
-  outline: 0;
-  opacity: 0.9;
-}
-
-.carousel-control-prev {
-  left: 0;
-}
-
-.carousel-control-next {
-  right: 0;
-}
-
-.carousel-indicators {
-  position: static;
-  -webkit-box-pack: start;
-  -ms-flex-pack: start;
-  justify-content: start;
-  margin: 0;
-}
-
-.carousel-indicators li {
-  border-radius: 50%;
-}
-
-.carousel-indicators .active {
-  opacity: 1;
-  background-color: #1F3A63;
-  width: 9px;
-  height: 9px;
-}
-
-.carousel-control-prev {
-  left: auto;
-  right: 45px;
-}
-
-.card-span {
-  -webkit-transition: all 0.4s ease;
-  -o-transition: all 0.4s ease;
-  transition: all 0.4s ease;
-  border: 0;
-}
-
-.card-span .card-span-img {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translate3d(-50%, -50%, 0);
-  transform: translate3d(-50%, -50%, 0);
-}
-
 .input-group {
   position: relative;
 }
@@ -17652,9 +17544,3 @@ label {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
-
-/*-----------------------------------------------
-|   User Styles
------------------------------------------------*/
-
-/*# sourceMappingURL=theme.css.map */
