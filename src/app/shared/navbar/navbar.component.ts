@@ -7,10 +7,11 @@ import { Component } from '@angular/core';
 })
 export class NavbarComponent {
 
-  navbarOpen = false;
+  // navbarOpen = false;
+  public isCollapsed = true;
 
-  toggleNavbar() {
-    this.navbarOpen = !this.navbarOpen;
-  }
+  // toggleNavbar() {
+  //   this.navbarOpen = !this.navbarOpen;
+  // }
 
 }
