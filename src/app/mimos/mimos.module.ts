@@ -5,13 +5,15 @@ import { MimosRoutingModule } from './mimos-routing.module';
 import { HomeComponent } from './pages/home/home.component';
 import { CardsComponent } from './components/cards/cards.component';
 import { SearchSitterComponent } from './pages/search-sitter/search-sitter.component';
+import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     CardsComponent,
-    SearchSitterComponent
+    SearchSitterComponent,
+    TestimonialsComponent
   ],
   imports: [
     CommonModule,
