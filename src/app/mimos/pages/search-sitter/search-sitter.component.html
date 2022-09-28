@@ -98,9 +98,9 @@
       </div>
   </div>
 </div> -->
-<div class="container-fluid">
+<div class="container-fluid m-0">
   <div class="row">
-      <div class="col-2 bg-light sticky-top">
+      <div class="col-12 col-lg-2 bg-secondary sidebar">
           <div class="d-flex flex-sm-column flex-row flex-nowrap bg-light align-items-center sticky-top">
               <h5>Filter</h5>
               <div class="form-check form-check-inline">
@@ -126,144 +126,43 @@
                       <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Orders">
                           CAT
                       </a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Products">
-                          <i class="bi-heart fs-1"></i>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#" class="nav-link py-3 px-2" title="" data-bs-toggle="tooltip" data-bs-placement="right" data-bs-original-title="Customers">
-                          <i class="bi-people fs-1"></i>
-                      </a>
-                  </li>
               </ul>
           </div>
       </div>
-      <div class="col-6 sitter-info overflow-scroll" style="max-height: 800px;">
+      <div class="col-12 col-lg-6 sitter-info">
 
-        <div class="card m-3">
+        <div class="card my-3" *ngFor="let user of userSittersData; let i = index">
           <div class="row g-0">
-            <div class="col-4" routerLink="">
-              <img src="/assets/img/gallery/user-card-1.png" class="img-fluid img-card rounded-start" alt="username">
+            <div class="col-2" routerLink="">
+              <img [src]="user.profilePicture" class="img-fluid rounded-start" style="max-height: 180px;" alt="username">
             </div>
             <div class="col-8">
               <div class="card-body">
-                <a routerLink="" class="h4 card-title text-primary">Jessica</a>
-                <p class="card-text">Atenta, cariñosa y amigable
+                <a routerLink="" class="h4 card-title text-primary">{{ user.name }}</a>
+                <i *ngIf="user.verifiedUser" class="bi bi-shield-fill-check px-2"></i>
+                <p class="card-text">
+                  {{ user.titleDesc }}
                   <br>
-                  <span class="card-address">Barcelona, 08002</span>
+                  <span class="card-address">
+                    {{ user.address }}
+                  </span>
                 </p>
-                
-                <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                <p class="card-text hidden-mobile">{{ user.desc }}</p>
+                <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
               </div>
+            </div>
+            <div class="col-2 justify-content-end">
+              <p class="card-text pt-3 pb-0">from</p>
+              <h3> {{ user.price }} € </h3>
+              <a class="favorite h4" (click)="saveFavorite(i)">
+                <i [class]="getClassCSS()"></i>
+              </a>
             </div>
           </div>
         </div>
-
-        <div class="card m-3">
-            <div class="row g-0">
-              <div class="col-4" routerLink="">
-                <img src="/assets/img/gallery/user-card-2.png" class="img-fluid img-card rounded-start" alt="username">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <a routerLink="" class="h4 card-title text-primary">Núria</a>
-                  <p class="card-text">Atenta, cariñosa y amigable
-                    <br>
-                    <span class="card-address">Barcelona, 08002</span>
-                  </p>
-                  
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="card m-3">
-            <div class="row g-0">
-              <div class="col-4" routerLink="">
-                <img src="/assets/img/gallery/user-card-3.png" class="img-fluid img-card rounded-start" alt="username">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <a routerLink="" class="h4 card-title text-primary">Fernando</a>
-                  <p class="card-text">Atenta, cariñosa y amigable
-                    <br>
-                    <span class="card-address">Barcelona, 08002</span>
-                  </p>
-                  
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-        </div>
-
-        <div class="card m-3">
-            <div class="row g-0">
-              <div class="col-4" routerLink="">
-                <img src="/assets/img/gallery/user-card-1.png" class="img-fluid img-card rounded-start" alt="username">
-              </div>
-              <div class="col-8">
-                <div class="card-body">
-                  <a routerLink="" class="h4 card-title text-primary">Jessica</a>
-                  <p class="card-text">Atenta, cariñosa y amigable
-                    <br>
-                    <span class="card-address">Barcelona, 08002</span>
-                  </p>
-                  
-                  <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                </div>
-              </div>
-            </div>
-          </div>
-  
-          <div class="card m-3">
-              <div class="row g-0">
-                <div class="col-4" routerLink="">
-                  <img src="/assets/img/gallery/user-card-2.png" class="img-fluid img-card rounded-start" alt="username">
-                </div>
-                <div class="col-8">
-                  <div class="card-body">
-                    <a routerLink="" class="h4 card-title text-primary">Núria</a>
-                    <p class="card-text">Atenta, cariñosa y amigable
-                      <br>
-                      <span class="card-address">Barcelona, 08002</span>
-                    </p>
-                    
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
-              </div>
-          </div>
-  
-          <div class="card m-3">
-              <div class="row g-0">
-                <div class="col-4" routerLink="">
-                  <img src="/assets/img/gallery/user-card-3.png" class="img-fluid img-card rounded-start" alt="username">
-                </div>
-                <div class="col-8">
-                  <div class="card-body">
-                    <a routerLink="" class="h4 card-title text-primary">Fernando</a>
-                    <p class="card-text">Atenta, cariñosa y amigable
-                      <br>
-                      <span class="card-address">Barcelona, 08002</span>
-                    </p>
-                    
-                    <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                    <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-                  </div>
-                </div>
-              </div>
-          </div>
 
       </div>
-      <div class="col-4 min-vh-100">
+      <div class="col-12 col-lg-4" id="divMap">
         <div id="map"></div>
       </div>
   </div>

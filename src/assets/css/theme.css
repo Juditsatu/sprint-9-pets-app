@@ -14,32 +14,6 @@
  * Copyright 2011-2020 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
-:root {
-  --bs-blue: #1F3A63;
-  --bs-indigo: #53ACF8;
-  --bs-purple: #ad45f6;
-  --bs-pink: #f6458e;
-  --bs-red: #F55767;
-  --bs-orange: #f6d845;
-  --bs-yellow: #FFA024;
-  --bs-green: #40975F;
-  --bs-teal: #299EF3;
-  --bs-cyan: #3EB8F4;
-  --bs-white: #fff;
-  --bs-gray: #C3C1C8;
-  --bs-gray-dark: #616368;
-  --bs-primary: #442953;
-  --bs-secondary: #4F5665;
-  --bs-success: #40975F;
-  --bs-info: #3EB8F4;
-  --bs-warning: #FFA024;
-  --bs-danger: #E94842;
-  --bs-light: #ddd;
-  --bs-dark: #1F1534;
-  --bs-font-sans-serif: "Poppins", "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --bs-font-monospace: "SFMono-Regular", Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-  --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
-}
 
 *,
 *::before,

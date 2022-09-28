@@ -1,17 +1,47 @@
+@media (max-width: 767px) {
+  .hidden-mobile {
+    display: none;
+  }
+}
+
+#divMap {
+  // overflow: auto;
+  max-height: 100vh;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  padding: 0px;
+  border-width: 0px;
+  margin: 0px;
+}
+
 #map {
   height: 100%;
   width: 100%;
-  z-index: 3;
-  display: block;
+  position: fixed;
+  max-height: 100vh;
 }
+
+// .container-fluid {
+//   // max-height: fit-content;
+//   max-height: 100vh;
+//   // max-height: 500px;
+// }
+
 
 img {
   cursor: pointer;
 }
 
+i {
+  color: green;
+}
+
 .sitter-info {
   z-index: 1;
+  overflow: hidden;
 }
+
 
 .card {
   border: 1px solid #F5D5C3;
@@ -36,6 +66,23 @@ img {
   font-size: 85%;
 }
 
-.img-card {
-  max-height: 200px;
+.favorite i {
+  cursor: pointer;
+  -webkit-transition: all 0.4s ease-out 0s;
+  -moz-transition: all 0.4s ease-out 0s;
+  -ms-transition: all 0.4s ease-out 0s;
+  -o-transition: all 0.4s ease-out 0s;
+  transition: all 0.4s ease-out 0s;
+}
+
+.favorite i:hover {
+  color: #E94842;
+}
+
+.red {
+  color: #E94842;
+}
+
+.light-red {
+  color: #F5D5C3;
 }
