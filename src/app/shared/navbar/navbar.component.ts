@@ -17,7 +17,7 @@ export class NavbarComponent {
   menuItems: MenuItem[] = [
     {
       route: '/search',
-      name: 'Search sitters'
+      name: '<i class="bi bi-search"></i> Search sitters'
     },
     {
       route: '/',

@@ -1,4 +1,4 @@
-/* -------------------------------------------------------------------------- */
+--------------------------------------------------------------------------
 /*                                 Theme                                      */
 /* -------------------------------------------------------------------------- */
 /* prettier-ignore */
@@ -4645,7 +4645,7 @@ fieldset:disabled .btn {
   word-wrap: break-word;
   background-color: #fff;
   background-clip: border-box;
-  border: 2px solid rgba(0, 0, 0, 0.125);
+  border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1.25rem;
 }
 
