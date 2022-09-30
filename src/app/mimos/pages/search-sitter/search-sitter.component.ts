@@ -10,7 +10,6 @@ import { UserSitter } from '../../interfaces/user-sitter';
 })
 export class SearchSitterComponent implements OnInit {
 
-  constructor() { }
 
   toggle = true;
 

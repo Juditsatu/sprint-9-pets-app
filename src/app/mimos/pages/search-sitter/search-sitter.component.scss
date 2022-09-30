@@ -4,8 +4,11 @@
   }
 }
 
+.sticky-top {
+  padding-top: 72px;
+}
+
 #divMap {
-  // overflow: auto;
   max-height: 100vh;
   top: 0px;
   left: 0px;
@@ -19,15 +22,13 @@
   height: 100%;
   width: 100%;
   position: fixed;
-  max-height: 100vh;
 }
 
-// .container-fluid {
-//   // max-height: fit-content;
-//   max-height: 100vh;
-//   // max-height: 500px;
+// .sidebar {
+//   height: 100%;
+//   width: 100%;
+//   position: fixed;
 // }
-
 
 img {
   cursor: pointer;
