@@ -16,12 +16,30 @@
   padding: 0px;
   border-width: 0px;
   margin: 0px;
+  justify-content: center;
 }
 
-#map {
+.map-container {
   height: 100%;
   width: 100%;
   position: fixed;
+}
+
+.map-buttons {
+  position: fixed;
+  padding: 20px 20px;
+  z-index: 1;
+}
+
+.zoom {
+  border: 1px solid #E94842;
+  background: #fffbfa;
+  color: #e38368;
+}
+.zoom:hover {
+  border: 1px solid #E94842;
+  background: #fff;
+  color: #E94842;
 }
 
 // .sidebar {
@@ -55,6 +73,7 @@ i {
 }
 
 .card:hover {
+  border: 1px solid #E94842;
   background: #fff;
   box-shadow: 0px 10px 30px 0px rgba(133, 66, 189, 0.1);
 }
@@ -67,13 +86,24 @@ i {
   font-size: 85%;
 }
 
+// .rounded {
+//   width: 100px;
+//   height: 100px;
+//   border-radius: 100%;
+// }
+
 .favorite i {
   cursor: pointer;
+  color: #E94842;
   -webkit-transition: all 0.4s ease-out 0s;
   -moz-transition: all 0.4s ease-out 0s;
   -ms-transition: all 0.4s ease-out 0s;
   -o-transition: all 0.4s ease-out 0s;
   transition: all 0.4s ease-out 0s;
+}
+
+.img-fluid {
+  border-start-start-radius: 100px;
 }
 
 .favorite i:hover {
@@ -86,4 +116,8 @@ i {
 
 .light-red {
   color: #F5D5C3;
+}
+
+.btn-outline-primary {
+  border-radius: 100%;
 }
