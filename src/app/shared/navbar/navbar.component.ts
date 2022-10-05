@@ -23,6 +23,14 @@ export class NavbarComponent {
       route: '/',
       name: 'About'
     },
+    {
+      route: '/',
+      name: 'Sign Up'
+    },
+    {
+      route: '/',
+      name: 'Sign In'
+    },
   ]
 
 }
