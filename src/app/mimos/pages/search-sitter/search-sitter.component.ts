@@ -14,6 +14,7 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
   constructor( private sittersService: SittersService ) { }
   sitters: any[] = [];
   toggle = true;
+  price: number = 50;
 
   @ViewChild('map') divMap!: ElementRef
   map!: mapboxgl.Map;
@@ -21,7 +22,7 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
   center: [number, number] = [2.176333014914384, 41.404311707558456];
 
   ngOnInit(): void {
-    // this.getSitters();
+    this.getSitters();
   }
 
   ngOnDestroy(): void {
@@ -62,18 +63,18 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
     })
   }
   saveFavorite(index: number) {
-    this.toggle = !this.toggle;
+    this.userSittersData[index].like = !this.userSittersData[index].like;
   }
 
-  getClassCSS(): string {
-    return this.toggle ? 'bi bi-heart light-red' : 'bi bi-heart-fill red'
+  getClassCSS(index: number): string {
+    return this.userSittersData[index].like ? 'bi bi-heart-fill red' : 'bi bi-heart red'
   }
 
   getSitters() {
     this.sittersService.getAllSitters()
       .subscribe({
         next: (response: any) => {
-          this.sitters = response;
+          this.sitters = response.data;
           
           console.log('info sitter',this.sitters)
         },
@@ -91,10 +92,6 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
     this.map.zoomIn();
   }
 
-  zoomChanged(value: string) {
-    this.map.zoomTo( Number(value) );
-  }
-
 
   userSittersData: UserSitter[] = [
     {
@@ -104,7 +101,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     true,
-      price:            15
+      price:            15,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-2.png',
@@ -113,7 +111,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     false,
-      price:            18
+      price:            18,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-3.png',
@@ -122,7 +121,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     true,
-      price:            22
+      price:            22,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-1.png',
@@ -131,7 +131,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     true,
-      price:            20
+      price:            20,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-2.png',
@@ -140,7 +141,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     true,
-      price:            23
+      price:            23,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-3.png',
@@ -149,7 +151,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     false,
-      price:            12
+      price:            12,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-1.png',
@@ -158,7 +161,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     true,
-      price:            30
+      price:            30,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-2.png',
@@ -167,7 +171,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     false,
-      price:            12
+      price:            12,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-3.png',
@@ -176,7 +181,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     true,
-      price:            15
+      price:            15,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-1.png',
@@ -185,7 +191,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     true,
-      price:            28
+      price:            28,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-2.png',
@@ -194,7 +201,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     true,
-      price:            17
+      price:            17,
+      like:             false
     },
     {
       profilePicture:   '/assets/img/gallery/user-card-3.png',
@@ -203,7 +211,8 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
       desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
       address:          'Barcelona, 08002',
       verifiedUser:     false,
-      price:            18
+      price:            18,
+      like:             false
     },
   ]
 

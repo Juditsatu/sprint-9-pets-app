@@ -9,4 +9,5 @@ export interface UserSitter {
   dogSitter?:       boolean;
   catSitter?:       boolean;
   rating?:          number;
+  like?:            boolean;
 }

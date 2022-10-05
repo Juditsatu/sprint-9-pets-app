@@ -1,148 +1,115 @@
-<!-- <div class="container-fluid">
-  <div class="row">
-      <div class="col-12 col-lg-2">
-          <div class="sticky-top filter-container">
-            <header class="title">
-                <p class="">Choose your pet(s)</p>
-            </header>
-              
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                <label class="form-check-label" for="inlineCheckbox1">Cat</label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                <label class="form-check-label" for="inlineCheckbox2">Dog</label>
-              </div>
-          </div>
-      </div>
-
-      <div class="col-12 col-lg-6 sitter-info">
-
-        <div class="card my-3" *ngFor="let user of userSittersData; let i = index">
-          <div class="row g-0">
-            <div class="col-2" routerLink="">
-              <img [src]="user.profilePicture" class="img-fluid rounded-start" style="max-height: 180px;" alt="username">
-            </div>
-            <div class="col-8">
-              <div class="card-body">
-                <a routerLink="" class="h4 card-title text-primary">{{ user.name }}</a>
-                <i *ngIf="user.verifiedUser" class="bi bi-shield-fill-check px-2"></i>
-                <p class="card-text">
-                  {{ user.titleDesc }}
-                  <br>
-                  <span class="card-address">
-                    {{ user.address }}
-                  </span>
-                </p>
-                <p class="card-text hidden-mobile">{{ user.desc | truncate:[120, '...'] }}</p>
-              </div>
-            </div>
-            <div class="col-2">
-              <div class="pt-3">
-                <span class="card-text">from</span>
-                <h3> {{ user.price }} € </h3>
-              </div>
-              <div class="pt-2 d-flex">
-                  <a class="favorite h4" (click)="saveFavorite(i)">
-                    <i [class]="getClassCSS()"></i>
-                  </a>
-              </div>
-            </div>
+<div class="horizontal-layout d-lg-flex">
+  <!-- sidebar filter -->
+  <aside class="col-12 col-lg-2">
+    <div class="sidebar-content">
+      <div class="px-3">
+        <h3 class="py-3">Search Filters</h3>
+        <div class="mb-4">
+          <label class="mb-2">Service Type</label>
+          <div class="list-group">
+            <a routerLink="/search" class="list-group-item list-group-item-action active">Drop-In Visits</a>
+            <a routerLink="/search" class="list-group-item list-group-item-action">Dog Walking</a>
+            <a routerLink="/search" class="list-group-item list-group-item-action">House Sitting</a>
           </div>
         </div>
-
-      </div>
-      <div class="col-12 col-lg-4" id="divMap">
-        <div id="map"></div>
-      </div>
-  </div>
-</div> -->
-<div class="container-fluid min-vh-100">
-    <div class="row ">
-        <div class="col-12 col-lg-2 bg-secondary">
-            <div class="sidebar">
-                <div class="pt-4">
-                    <header>
-                        <p>Choose your pet(s)</p>
-                    </header>
-                    <div class="form-check form-check-inline px-4">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                      <label class="form-check-label" for="inlineCheckbox1">Cat</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                      <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                      <label class="form-check-label" for="inlineCheckbox2">Dog</label>
-                    </div>
-                </div>
-                <div class="p-4">
-                    <p>Dates</p>
-                    <app-calendar></app-calendar>
-                </div>
-                <div>
-                  <header>
-                    <p>Number of pets</p>
-                  </header>
-                  <div class="btn-group" role="group" aria-label="Basic outlined example">
-                    <button type="button" class="btn btn-outline-primary px-4">1</button>
-                    <button type="button" class="btn btn-outline-primary px-4">2</button>
-                    <button type="button" class="btn btn-outline-primary px-4">3+</button>
-                  </div>
-                </div>
-                  
-            </div>
+        <div class="mb-4">
+          <label class="mb-2">Dates</label>
+          <app-calendar></app-calendar>
         </div>
-        <div class="col-12 col-lg-6">
-            <div class="card my-3" *ngFor="let user of userSittersData; let i = index">
-                <div class="row g-0">
-                  <div class="col-2" routerLink="">
-                    <img [src]="user.profilePicture" class="img-fluid rounded-start" style="max-height: 180px;" alt="username">
-                  </div>
-                  <div class="col-8">
-                    <div class="card-body">
-                      <a routerLink="" class="h4 card-title text-primary">{{ user.name }}</a>
-                      <i *ngIf="user.verifiedUser" class="bi bi-shield-fill-check px-2"></i>
-                      <p class="card-text">
-                        {{ user.titleDesc }}
-                        <br>
-                        <span class="card-address">
-                          {{ user.address }}
-                        </span>
-                      </p>
-                      <p class="card-text hidden-mobile">{{ user.desc | truncate:[120, '...'] }}</p>
-                    </div>
-                  </div>
-                  <div class="col-2">
-                    <div class="pt-3">
-                      <span class="card-text">from</span>
-                      <h3> {{ user.price }} € </h3>
-                    </div>
-                    <div class="pt-2 d-flex">
-                      <button class="btn btn-outline-primary" (click)="saveFavorite(i)">
-                        <i [class]="getClassCSS()"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-        </div>
-        <div class="col-12 col-lg-4" id="divMap">
-          <div class="map-buttons">
-            <div class="btn-group-vertical" role="group">
-              <button type="button" 
-                      class="btn btn-primary zoom"
-                      (click)="zoomIn()"> 
-                    + 
-              </button>
-              <button type="button" 
-                      class="btn btn-primary zoom"
-                      (click)="zoomOut()"> 
-                    - 
-              </button>
-            </div>
+        <div class="mb-4">
+          <label class="mb-2 d-block">How many pets?</label>
+          <div class="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="btnradio1">1</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio2">2</label>
+          
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3">3+</label>
           </div>
-          <div #map class="map-container"></div>
         </div>
+        <div class="mb-4">
+          <label class="mb-2 d-block">Pet type</label>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+            <label class="form-check-label" for="inlineCheckbox1">Cat</label>
+          </div>
+          <div class="form-check form-check-inline">
+            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+            <label class="form-check-label" for="inlineCheckbox2">Dog</label>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label class="form-label mb-2 d-block">Max price (0 - 150€)</label>
+          <input type="range" 
+                 [value]="price"
+                 oninput="this.nextElementSibling.value = this.value"
+                 min="0"
+                 max="150" 
+                 class="form-range">
+          <output> {{ price }} </output><span > €</span>
+        </div>
+      </div>
     </div>
+  </aside>
+  <!-- /sidebar filter -->
 
+  <!-- search results -->
+  <div class="col-12 col-lg-5">
+    <div class="px-3">
+      <div class="card my-3" *ngFor="let user of userSittersData; let i = index">
+        <div class="row g-0">
+          <div class="col-2" routerLink="">
+            <img [src]="user.profilePicture" class="img-fluid rounded-start" style="max-height: 180px;" alt="username">
+          </div>
+          <div class="col-8">
+            <div class="card-body">
+              <a routerLink="" class="h4">{{ user.name }}</a>
+              <i *ngIf="user.verifiedUser" title="Verified User" class="bi bi-shield-fill-check px-2"></i>
+              <p class="card-text">
+                {{ user.titleDesc }}
+                <br>
+                <span class="card-address">
+                  {{ user.address }}
+                </span>
+              </p>
+              <p class="card-text hidden-mobile">{{ user.desc | truncate:[120, '...'] }}</p>
+            </div>
+          </div>
+          <div class="col-2">
+            <div class="pt-3">
+              <span class="card-text">from</span>
+              <h3> {{ user.price }} € </h3>
+            </div>
+            <div class="pt-2 d-flex">
+              <button class="btn btn-outline-primary favorite" (click)="saveFavorite(i)">
+                <i [class]="getClassCSS(i)"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /search results -->
+
+  <!-- map -->
+  <div class="d-none d-lg-block col-lg-5" id="divMap">
+    <div class="map-buttons">
+      <div class="btn-group-vertical" role="group">
+        <button type="button" 
+                class="btn btn-primary zoom"
+                (click)="zoomIn()"> 
+              + 
+        </button>
+        <button type="button" 
+                class="btn btn-primary zoom"
+                (click)="zoomOut()"> 
+              - 
+        </button>
+      </div>
+    </div>
+    <div #map class="map-container"></div>
+  </div>
 </div>
