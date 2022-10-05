@@ -1,8 +1,9 @@
 <form class="row row-cols-sm-auto">
-    <div class="col-12">
+    <div class="col-6 col-lg-6">
       <div class="dp-hidden position-absolute">
         <div class="input-group">
           <input name="datepicker"
+                 type="text"
                  class="form-control"
                  ngbDatepicker
                  #datepicker="ngbDatepicker"
@@ -27,25 +28,27 @@
       </div>
       <div class="input-group">
         <input #dpFromDate
-               class="form-control" placeholder="yyyy-mm-dd"
+               type="text"
+               class="form-control" placeholder="Drop off"
                name="dpFromDate"
                [value]="formatter.format(fromDate)"
                (input)="fromDate = validateInput(fromDate, dpFromDate.value)">
-        <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"></button>
+        <button class="btn btn-outline-primary bi bi-calendar3 p-2" (click)="datepicker.toggle()" type="button"></button>
       </div>
     </div>
-    <div class="col-12">
+    <div class="col-6 col-lg-6">
       <div class="input-group">
         <input #dpToDate
-               class="form-control" placeholder="yyyy-mm-dd"
+               type="text"
+               class="form-control" placeholder="Pick up"
                name="dpToDate"
                [value]="formatter.format(toDate)"
                (input)="toDate = validateInput(toDate, dpToDate.value)">
-        <button class="btn btn-outline-secondary calendar" (click)="datepicker.toggle()" type="button"></button>
+        <button class="btn btn-outline-primary bi bi-calendar3 p-2" (click)="datepicker.toggle()" type="button"></button>
       </div>
     </div>
   </form>
   
-  <hr/>
+  <!-- <hr/>
   <pre>From date model: {{ fromDate | json }}</pre>
-  <pre>To date model: {{ toDate | json }}</pre>
+  <pre>To date model: {{ toDate | json }}</pre> -->
