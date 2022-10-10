@@ -24,12 +24,12 @@ export class NavbarComponent {
       name: 'About'
     },
     {
-      route: '/account/signup',
-      name: 'Sign Up'
+      route: '/account/login',
+      name: 'Log In'
     },
     {
-      route: '/account/signin',
-      name: 'Sign In'
+      route: '/account/signup',
+      name: 'Sign Up'
     },
   ]
 
