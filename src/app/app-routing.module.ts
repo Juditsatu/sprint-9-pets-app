@@ -7,7 +7,11 @@ const routes: Routes = [
     loadChildren: () => import('./mimos/mimos.module').then( m => m.MimosModule )
   },
   {
-    path: 'account',
+    path: '',
+    loadChildren: () => import('./protected/protected.module').then( m => m.ProtectedModule )
+  },
+  {
+    path: 'member',
     loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule )
   },
   {
