@@ -3,6 +3,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
 
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
@@ -31,9 +33,9 @@ export class RegisterComponent {
         console.log(valid)
 
         if (valid === true) {
-          this.router.navigateByUrl('/dashboard');
+          this.router.navigateByUrl('/');
         } else {
-          // Swal.fire('Error', valid, 'error');
+          Swal.fire('Error', valid, 'error');
         }
       })
   }

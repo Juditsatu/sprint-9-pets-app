@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -21,6 +23,21 @@ export class LoginComponent {
     private authService: AuthService
     ) { }
 
+  // @Output() fireIsLoggedIn: EventEmitter<any> = new EventEmitter<any>(); 
+     
+  // getEmitter() { 
+  //   return this.fireIsLoggedIn; 
+  // } 
+
+  // invalidField(field: string) {
+  //   this.authService.invalidField(this.loginForm, field);
+  // }
+
+  // invalidField(field: string) {
+  //   return this.loginForm.get(field)?.invalid &&
+  //          this.loginForm.get(field)?.touched;
+  // }
+
   login() {
     // this.authService.validateToken()
     //   .subscribe( res => console.log (res) )
@@ -32,13 +49,13 @@ export class LoginComponent {
 
         console.log(valid)
 
-        if (valid === true) {
+        if (this.loginForm.value && valid === true) {
+          // this.fireIsLoggedIn.emit('user')
           this.router.navigateByUrl('/');
         } else {
-          // Swal.fire('Error', valid, 'error');
+          Swal.fire('Error', valid, 'error');
         }
       })
    
-    this.router.navigateByUrl('/');
   }
 }
