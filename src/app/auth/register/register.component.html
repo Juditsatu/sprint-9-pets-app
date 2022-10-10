@@ -1,0 +1,36 @@
+<div class="login-container">
+   <div class="image"></div>
+   <div class="sign-in">
+     
+       <h1>Sign Up</h1>
+       <form autocomplete="off"
+             [formGroup]="signupForm"
+             (ngSubmit)="signup()">
+              
+         <input type="email" 
+                placeholder="Name"
+                formControlName="name" >
+         <input type="email" 
+                placeholder="Email"
+                formControlName="email" >
+         <input type="password" 
+                placeholder="Password"
+                formControlName="password" >
+              
+         <a routerLink="/">Forgot password?</a>
+              
+         <button class="btn btn-primary" 
+                 type="submit">
+                 Sign up
+         </button>
+              
+         <div class="group sign-up-link">
+              <p>Already have an account? 
+                <a routerLink="/account/login">Login</a>
+              </p>
+          </div>
+              
+       </form>
+              
+   </div>
+</div>
