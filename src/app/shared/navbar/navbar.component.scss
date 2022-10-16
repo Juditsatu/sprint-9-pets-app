@@ -48,6 +48,10 @@
 //   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.95%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M0 6h30M0 14h30M0 22h30'/%3E%3C/svg%3E");
 // }
 
+.btn-outline-primary:hover {
+  border-color: #e94842;
+}
+
 .shadow-transition {
   -webkit-box-shadow: 0 25px 45px rgba(79, 86, 101, 0.075);
   box-shadow: 0 25px 45px rgba(79, 86, 101, 0.075);
@@ -84,4 +88,11 @@
 .navbar-light .navbar-toggler {
   color: rgba(0, 0, 0, 0.95);
   border-color: rgba(0, 0, 0, 0.1);
+}
+
+.img-fluid {
+  height: 32px;
+  width: 32px;
+  border-radius: 100%;
+  object-fit: cover;
 }

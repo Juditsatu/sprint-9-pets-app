@@ -50,8 +50,7 @@ export class LoginComponent {
         console.log(valid)
 
         if (this.loginForm.value && valid === true) {
-          // this.fireIsLoggedIn.emit('user')
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/search');
         } else {
           Swal.fire('Error', valid, 'error');
         }

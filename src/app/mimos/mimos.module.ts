@@ -9,6 +9,7 @@ import { SearchSitterComponent } from './pages/search-sitter/search-sitter.compo
 import { TestimonialsComponent } from './components/testimonials/testimonials.component';
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { AboutComponent } from './pages/about/about.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     SearchSitterComponent,
     TestimonialsComponent,
     TruncatePipe,
-    CalendarComponent
+    CalendarComponent,
+    AboutComponent
   ],
   imports: [
     CommonModule,

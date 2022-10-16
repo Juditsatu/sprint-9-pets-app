@@ -18,6 +18,26 @@
           </a>
         </li>
       </ul>
+
+      <div class="row">
+        <div class="col">
+          <div ngbDropdown class="d-inline-block">
+            <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+              <img src="../assets/img/gallery/user-card-1.png" alt="user-avatar" class="img-fluid"
+                                        height="100" width=100 id="uploadedAvatar" />
+              <!-- <i class="bi bi-person"></i>  -->
+              [Username]
+            </button>
+            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+              <button ngbDropdownItem routerLink="/account">Account</button>
+              <button ngbDropdownItem routerLink="/favorites">Favorites</button>
+              <button ngbDropdownItem routerLink="/">Points</button>
+              <hr>
+              <button ngbDropdownItem (click)="logout()"><i class="bi bi-power"></i> LOG OUT</button>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- <form class="ps-lg-5">
         <button class="btn btn-primary rounded-pill bg-gradient order-0" type="submit">Sign In</button>
       </form> -->

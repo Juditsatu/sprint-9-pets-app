@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthService } from 'src/app/auth/services/auth.service';
 
 interface MenuItem {
   route: string;
@@ -12,7 +13,13 @@ interface MenuItem {
 })
 export class NavbarComponent {
 
+  constructor( private authService: AuthService ) { }
+
   public isCollapsed = true;
+
+  logout() {
+    this.authService.logout();
+  }
 
   menuItems: MenuItem[] = [
     {
@@ -20,7 +27,7 @@ export class NavbarComponent {
       name: '<i class="bi bi-search"></i> Search sitters'
     },
     {
-      route: '/',
+      route: '/about',
       name: 'About'
     },
     {
@@ -30,11 +37,7 @@ export class NavbarComponent {
     {
       route: '/member/signup',
       name: 'Sign Up'
-    },
-    {
-      route: '/account',
-      name: 'Account[username]'
-    },
+    }
   ]
 
 }
