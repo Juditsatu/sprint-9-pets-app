@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { catchError, map, Observable, of, tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
@@ -18,7 +19,7 @@ export class AuthService {
     return  { ...this._user! };
   }
 
-  constructor( private http: HttpClient ) { }
+  constructor( private http: HttpClient, private router: Router, ) { }
 
   register( name: string, email: string, password: string ) {
 
@@ -84,6 +85,6 @@ export class AuthService {
 
   logout() {
     localStorage.removeItem('token');
-    window.location.reload();
+    this.router.navigateByUrl('/');
   }
 }

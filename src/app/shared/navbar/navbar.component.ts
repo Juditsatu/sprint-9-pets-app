@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
 // interface MenuItem {
@@ -11,26 +11,27 @@ import { AuthService } from 'src/app/auth/services/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
 
   constructor( private authService: AuthService ) { }
+
+  ngOnInit(): void {
+    this.userIsLogged();
+  }
 
   public isCollapsed = true;
   public isLogged = false;
 
   userName: string = ''
 
-  get user() {
-    return this.authService.auth;
-  }
+  // get user() {
+  //   return this.authService.auth;
+  // }
   
   userIsLogged() {
     if (localStorage.getItem('token')) {
       this.isLogged = true;
-      console.log('is logged?????', this.isLogged)
       this.userName = localStorage.getItem('user')!;
-      console.log('a',  this.userName)
-      // window.location.reload();
     }
   }
 
