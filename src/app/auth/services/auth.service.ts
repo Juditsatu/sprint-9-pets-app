@@ -12,10 +12,10 @@ import { AuthResponse, User } from '../interfaces/interfaces';
 export class AuthService {
 
   private baseUrl: string = environment.baseUrl;
-  private _user!: User;
+  private _user: User | undefined;
 
-  get user() {
-    return  { ...this._user };
+  get auth() {
+    return  { ...this._user! };
   }
 
   constructor( private http: HttpClient ) { }
@@ -30,10 +30,11 @@ export class AuthService {
       tap( res => {
         if (res.ok) {
           localStorage.setItem('token', res.token!);
-          // this._user = {
-          //   name:  res.name!,
-          //   uid: res.uid!,
-          // }
+          this._user = {
+            name:  res.name!,
+            email: res.email!,
+            uid: res.uid!,
+          }
         }
       }),
       map( res => res.ok ),
@@ -52,10 +53,12 @@ export class AuthService {
         tap( res => {
           if (res.ok) {
             localStorage.setItem('token', res.token!);
-            // this._user = {
-            //   name:  res.name!,
-            //   uid: res.uid!,
-            // }
+            this._user = {
+              name:  res.name!,
+              email: res.email!,
+              uid: res.uid!,
+            }
+            localStorage.setItem('user', this._user.name);
           }
         }),
         map( res => res.ok ),
@@ -73,11 +76,6 @@ export class AuthService {
       .pipe(
         map( res => { 
           localStorage.setItem('token', res.token!);
-          this._user = {
-            name:  res.name!,
-            uid: res.uid!,
-            email: res.email!
-          }
           return res.ok 
         }),
         catchError( err => of(false) )
@@ -85,6 +83,7 @@ export class AuthService {
   }
 
   logout() {
-    localStorage.clear();
+    localStorage.removeItem('token');
+    window.location.reload();
   }
 }

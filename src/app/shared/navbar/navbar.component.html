@@ -1,46 +1,81 @@
-<nav class="navbar navbar-expand-lg navbar-light py-3 backdrop sticky-top shadow-transition" data-navbar-on-scroll="data-navbar-on-scroll">
+<nav class="navbar navbar-expand-lg navbar-light py-3 backdrop sticky-top shadow-transition"
+  data-navbar-on-scroll="data-navbar-on-scroll">
   <div class="container-fluid">
-    <img class="navbar-logo d-flex align-items-center" 
-             src="../../../assets/img/mimos-logo.svg" 
-             alt="Logo mimos"
-             routerLink="">
-    <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
-      <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
-        <li class="nav-item"
-            *ngFor="let item of menuItems">
+    <img class="navbar-logo d-flex align-items-center" src="../../../assets/img/mimos-logo.svg" alt="Logo mimos"
+      routerLink="/">
+    <div class="d-flex align-item-end">
+
+      <div ngbDropdown class="d-lg-none me-2">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+          <img src="../assets/img/gallery/user-card-1.png" alt="user-avatar" class="img-fluid" height="100" width=100
+            id="uploadedAvatar" />
+          <span class="d-none"> {{ user.name }} </span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem routerLink="/account">Account</button>
+          <button ngbDropdownItem routerLink="/favorites">Favorites</button>
+          <button ngbDropdownItem routerLink="/">Points</button>
+          <hr>
+          <button ngbDropdownItem (click)="logout()"><i class="bi bi-power"></i> LOG OUT</button>
+        </div>
+      </div>
+
+      <ul class="navbar-nav d-lg-none me-3">
+        <li class="nav-item">
           <a class="nav-link fw-medium" 
-             [routerLink]="[item.route]"
-             [innerHTML]="item.name">
-             {{ item.name }}
+          routerLink="/member/login">
+          Log In
           </a>
         </li>
       </ul>
+      <button class="navbar-toggler" (click)="isCollapsed = !isCollapsed" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <div class="row">
-        <div class="col">
-          <div ngbDropdown class="d-inline-block">
-            <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
-              <img src="../assets/img/gallery/user-card-1.png" alt="user-avatar" class="img-fluid"
-                                        height="100" width=100 id="uploadedAvatar" />
-              <!-- <i class="bi bi-person"></i>  -->
-              [Username]
-            </button>
-            <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-              <button ngbDropdownItem routerLink="/account">Account</button>
-              <button ngbDropdownItem routerLink="/favorites">Favorites</button>
-              <button ngbDropdownItem routerLink="/">Points</button>
-              <hr>
-              <button ngbDropdownItem (click)="logout()"><i class="bi bi-power"></i> LOG OUT</button>
-            </div>
-          </div>
+    </div>
+    <div class="collapse navbar-collapse" [ngbCollapse]="isCollapsed">
+      <ul class="navbar-nav ms-auto pt-2 pt-lg-0">
+        <li class="nav-item">
+          <a class="nav-link fw-medium" 
+             routerLink="/search">
+             <i class="bi bi-search"></i> Search sitters
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-medium" 
+          routerLink="/about">
+          About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-medium" 
+          routerLink="/member/login">
+          Log In
+          </a>
+        </li>
+      </ul>
+      <div class="ms-2">
+        <button class="btn btn-lg btn-primary rounded-pill bg-gradient order-0" routerLink="/member/signup">Sign Up</button>
+      </div>
+
+
+      <div ngbDropdown class="d-inline-block">
+        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+          <img src="../assets/img/gallery/user-card-1.png" alt="user-avatar" class="img-fluid" height="100" width=100
+            id="uploadedAvatar" />
+          <span class=""> {{ userName }} </span>
+        </button>
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+          <button ngbDropdownItem routerLink="/account">Account</button>
+          <button ngbDropdownItem routerLink="/favorites">Favorites</button>
+          <button ngbDropdownItem routerLink="/">Points</button>
+          <hr>
+          <button ngbDropdownItem (click)="logout()"><i class="bi bi-power"></i> LOG OUT</button>
         </div>
       </div>
-      <!-- <form class="ps-lg-5">
-        <button class="btn btn-primary rounded-pill bg-gradient order-0" type="submit">Sign In</button>
-      </form> -->
+
     </div>
   </div>
 </nav>

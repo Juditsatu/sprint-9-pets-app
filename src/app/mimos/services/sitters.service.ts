@@ -10,7 +10,7 @@ export class SittersService {
 
   constructor( private http: HttpClient ) { }
 
-  getAllSitters(): Observable<any> {
-    return this.http.get<any>('/api/sitter/list');
-  }
+  // getAllSitters(): Observable<any> {
+  //   return this.http.get<any>('/api/sitter/list');
+  // }
 }

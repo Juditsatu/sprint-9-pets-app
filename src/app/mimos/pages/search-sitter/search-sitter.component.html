@@ -7,7 +7,7 @@
         <div class="mb-4">
           <label class="mb-2">Service Type</label>
           <div class="list-group">
-            <a routerLink="/search" class="list-group-item list-group-item-action active">Drop-In Visits</a>
+            <a routerLink="/search" class="list-group-item list-group-item-action">Drop-In Visits</a>
             <a routerLink="/search" class="list-group-item list-group-item-action">Dog Walking</a>
             <a routerLink="/search" class="list-group-item list-group-item-action">House Sitting</a>
           </div>
@@ -59,9 +59,12 @@
   <div class="col-12 col-lg-5">
     <div class="px-3">
       <div class="card my-3" *ngFor="let user of userSittersData; let i = index">
+        <button class="btn btn-outline-primary favorite m-3" (click)="saveFavorite(i)">
+          <i [class]="getClassCSS(i)"></i>
+        </button>
         <div class="row g-0">
-          <div class="col-2" routerLink="">
-            <img [src]="user.profilePicture" class="img-fluid rounded-start" style="max-height: 180px;" alt="username">
+          <div class="col-4 p-3 align-self-center" routerLink="">
+            <img [src]="user.profilePicture" class="img-fluid" alt="username">
           </div>
           <div class="col-8">
             <div class="card-body">
@@ -77,19 +80,19 @@
               <p class="card-text hidden-mobile">{{ user.desc | truncate:[120, '...'] }}</p>
             </div>
           </div>
-          <div class="col-2">
-            <div class="pt-3">
+          <!-- <div class="col-3">
+            <div class="p-3">
               <span class="card-text">from</span>
               <h3> {{ user.price }} € </h3>
-            </div>
-            <div class="pt-2 d-flex">
               <button class="btn btn-outline-primary favorite" (click)="saveFavorite(i)">
                 <i [class]="getClassCSS(i)"></i>
               </button>
             </div>
-          </div>
+
+          </div> -->
         </div>
       </div>
+      <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination" class="d-flex justify-content-center"></ngb-pagination>
     </div>
   </div>
   <!-- /search results -->

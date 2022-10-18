@@ -15,6 +15,7 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
   sitters: any[] = [];
   toggle = true;
   price: number = 50;
+  page = 4;
 
   @ViewChild('map') divMap!: ElementRef
   map!: mapboxgl.Map;
@@ -22,7 +23,7 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
   center: [number, number] = [2.176333014914384, 41.404311707558456];
 
   ngOnInit(): void {
-    this.getSitters();
+    // this.getSitters();
   }
 
   ngOnDestroy(): void {
@@ -70,19 +71,19 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
     return this.userSittersData[index].like ? 'bi bi-heart-fill red' : 'bi bi-heart red'
   }
 
-  getSitters() {
-    this.sittersService.getAllSitters()
-      .subscribe({
-        next: (response: any) => {
-          this.sitters = response.data;
+  // getSitters() {
+  //   this.sittersService.getAllSitters()
+  //     .subscribe({
+  //       next: (response: any) => {
+  //         this.sitters = response.data;
           
-          console.log('info sitter',this.sitters)
-        },
-        error: (err) => {
-          console.log(err)
-        }
-      })
-  }
+  //         console.log('info sitter',this.sitters)
+  //       },
+  //       error: (err) => {
+  //         console.log(err)
+  //       }
+  //     })
+  // }
 
   zoomOut() {
     this.map.zoomOut();
