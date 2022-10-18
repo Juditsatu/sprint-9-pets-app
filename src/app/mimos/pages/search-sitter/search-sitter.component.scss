@@ -57,6 +57,7 @@
 .card {
   // border: 1px solid #F5D5C3;
   background: #f9f9f9;
+  border-radius: 5px;
   -webkit-transition: all 0.4s ease-out 0s;
   -moz-transition: all 0.4s ease-out 0s;
   -ms-transition: all 0.4s ease-out 0s;
@@ -70,16 +71,28 @@
   box-shadow: 0px 10px 30px 0px rgba(133, 66, 189, 0.1);
 }
 
+.img-fluid {
+  height: 150px;
+  width: 150px;
+  border-radius: 5px;
+  object-position: center;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+@media (max-width: 767px) {
+  .img-fluid {
+    height: 90px;
+    width: 90px;
+  }
+}
+
 .card-text {
   font-size: small;
 }
 
 .card-address {
   font-size: 85%;
-}
-
-.img-fluid {
-  cursor: pointer;
 }
 
 .favorite i:hover {
@@ -95,6 +108,8 @@
 }
 
 .favorite {
+  position: absolute;
+  align-self: flex-end;
   border-radius: 100%;
   border: 1px solid #F5D5C3;
 }

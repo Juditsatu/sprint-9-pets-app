@@ -2,3 +2,11 @@
   margin: 30px 0px;
   min-height: calc(100vh - 72px);
 }
+
+.img-fluid {
+  height: 100px;
+  width: 100px;
+  border-radius: 5px;
+  object-position: center;
+  object-fit: cover;
+}
