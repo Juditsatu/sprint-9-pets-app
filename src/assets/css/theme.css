@@ -2857,15 +2857,15 @@ textarea.form-control-lg {
 }
 
 .form-check-input:focus {
-  border-color: #8f9db1;
+  border-color: #af8fb1;
   outline: 0;
-  -webkit-box-shadow: 0 0 0 0.25rem rgba(31, 58, 99, 0.25);
-  box-shadow: 0 0 0 0.25rem rgba(31, 58, 99, 0.25);
+  -webkit-box-shadow: 0 0 0 0.25rem rgba(133, 66, 189, 0.25);
+  box-shadow: 0 0 0 0.25rem rgba(133, 66, 189, 0.25);
 }
 
 .form-check-input:checked {
-  background-color: #1F3A63;
-  border-color: #1F3A63;
+  background-color: #442953;
+  border-color: #442953;
 }
 
 .form-check-input:checked[type="checkbox"] {
