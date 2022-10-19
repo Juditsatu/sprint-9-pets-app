@@ -10,6 +10,8 @@ import { TestimonialsComponent } from './components/testimonials/testimonials.co
 import { TruncatePipe } from './pipes/truncate.pipe';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { AboutComponent } from './pages/about/about.component';
+import { FilterComponent } from './components/filter/filter.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -20,11 +22,13 @@ import { AboutComponent } from './pages/about/about.component';
     TestimonialsComponent,
     TruncatePipe,
     CalendarComponent,
-    AboutComponent
+    AboutComponent,
+    FilterComponent
   ],
   imports: [
     CommonModule,
     MimosRoutingModule,
+    ReactiveFormsModule,
     NgbModule
   ]
 })

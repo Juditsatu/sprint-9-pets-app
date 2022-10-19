@@ -1,57 +1,7 @@
 <div class="horizontal-layout d-lg-flex">
   <!-- sidebar filter -->
   <aside class="col-12 col-lg-2">
-    <div class="sidebar-content">
-      <div class="px-3">
-        <h3 class="py-3">Search Filters</h3>
-        <div class="mb-4">
-          <label class="mb-2">Service Type</label>
-          <div class="list-group">
-            <a routerLink="/search" class="list-group-item list-group-item-action">Drop-In Visits</a>
-            <a routerLink="/search" class="list-group-item list-group-item-action">Dog Walking</a>
-            <a routerLink="/search" class="list-group-item list-group-item-action">House Sitting</a>
-          </div>
-        </div>
-        <div class="mb-4">
-          <label class="mb-2">Dates</label>
-          <app-calendar></app-calendar>
-        </div>
-        <div class="mb-4">
-          <label class="mb-2 d-block">How many pets?</label>
-          <div class="btn-group w-100" role="group" aria-label="Basic radio toggle button group">
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
-            <label class="btn btn-outline-primary" for="btnradio1">1</label>
-          
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
-            <label class="btn btn-outline-primary" for="btnradio2">2</label>
-          
-            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
-            <label class="btn btn-outline-primary" for="btnradio3">3+</label>
-          </div>
-        </div>
-        <div class="mb-4">
-          <label class="mb-2 d-block">Pet type</label>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-            <label class="form-check-label" for="inlineCheckbox1">Cat</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-            <label class="form-check-label" for="inlineCheckbox2">Dog</label>
-          </div>
-        </div>
-        <div class="mb-4">
-          <label class="form-label mb-2 d-block">Max price (0 - 150€)</label>
-          <input type="range" 
-                 [value]="price"
-                 oninput="this.nextElementSibling.value = this.value"
-                 min="0"
-                 max="150" 
-                 class="form-range">
-          <output> {{ price }} </output><span > €</span>
-        </div>
-      </div>
-    </div>
+    <app-filter (formValue)="filters($event)"></app-filter>
   </aside>
   <!-- /sidebar filter -->
 

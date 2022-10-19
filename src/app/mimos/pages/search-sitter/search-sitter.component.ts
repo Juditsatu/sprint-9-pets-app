@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
 
 import { UserSitter } from '../../interfaces/user-sitter';
@@ -12,9 +13,8 @@ import { SittersService } from '../../services/sitters.service';
 export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor( private sittersService: SittersService ) { }
-  sitters: any[] = [];
-  toggle = true;
-  price: number = 50;
+  // sitters: any[] = [];
+  // toggle = true;
   page = 4;
 
   @ViewChild('map') divMap!: ElementRef
@@ -24,6 +24,14 @@ export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit(): void {
     // this.getSitters();
+  }
+
+  //Get value from filter component
+  formValue!: FormGroup;
+
+  filters(form: FormGroup) {
+    this.formValue = form;
+    console.log('form de filter a buscador', this.formValue)
   }
 
   ngOnDestroy(): void {

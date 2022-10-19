@@ -16,35 +16,6 @@
 }
 
 /*-----------------------------------------------
-|   SIDEBAR
------------------------------------------------*/
-
-@media (min-width: 768px) {
-  .sidebar {
-    display: block;
-  }
-}
-
-.sidebar {
-  align-self: stretch;
-  margin-left: 5px;
-  margin-right: 5px;
-  position: relative;
-  z-index: 3;
-  // height: calc(100vh - 72px);
-}
-
-.sidebar-content {
-  position: sticky;
-  position: -webkit-sticky;
-  height: 100vh;
-  z-index: 3;
-  // width: 320px;
-  // top: calc(100% - 1279px);
-  top: 72px;
-}
-
-/*-----------------------------------------------
 |   SEARCH RESULTS
 -----------------------------------------------*/
 
