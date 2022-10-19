@@ -33,7 +33,10 @@ export class RegisterComponent {
         console.log(valid)
 
         if (valid === true) {
-          this.router.navigateByUrl('/');
+          this.router.navigateByUrl('/search')
+            .then( () => {
+              window.location.reload();
+            });
         } else {
           Swal.fire('Error', valid, 'error');
         }

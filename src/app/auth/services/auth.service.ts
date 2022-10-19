@@ -21,6 +21,31 @@ export class AuthService {
 
   constructor( private http: HttpClient, private router: Router, ) { }
 
+  verifyAuth(): Observable<boolean> {
+
+    const url = `${this.baseUrl}/auth/renew`;
+    const headers = new HttpHeaders()
+      .set('x-token', localStorage.getItem('token') || '' )
+
+    if (!localStorage.getItem('token')) {
+        return of(false)
+    }
+
+    return this.http.get<AuthResponse>( url, { headers } )
+      .pipe(
+        map( res => { 
+          localStorage.setItem('token', res.token!);
+          this._user = {
+            name : res.name!,
+            email: res.email!,
+            uid: res.uid!
+          }
+          return res.ok 
+        }),
+        catchError( err => of(false) )
+      )
+  }
+
   register( name: string, email: string, password: string ) {
 
     const url = `${this.baseUrl}/auth/new`
@@ -36,6 +61,7 @@ export class AuthService {
             email: res.email!,
             uid: res.uid!,
           }
+          localStorage.setItem('user', this._user.name);
         }
       }),
       map( res => res.ok ),
