@@ -12,6 +12,8 @@ import { CalendarComponent } from './components/calendar/calendar.component';
 import { AboutComponent } from './pages/about/about.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SearchBarComponent } from './components/search-bar/search-bar.component';
+import { SearchResultsComponent } from './components/search-results/search-results.component';
 
 
 @NgModule({
@@ -23,7 +25,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     TruncatePipe,
     CalendarComponent,
     AboutComponent,
-    FilterComponent
+    FilterComponent,
+    SearchBarComponent,
+    SearchResultsComponent
   ],
   imports: [
     CommonModule,

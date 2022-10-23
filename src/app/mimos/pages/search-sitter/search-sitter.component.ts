@@ -3,6 +3,7 @@ import { FormGroup } from '@angular/forms';
 import * as mapboxgl from 'mapbox-gl';
 
 import { UserSitter } from '../../interfaces/user-sitter';
+import { PlacesService } from '../../services';
 import { SittersService } from '../../services/sitters.service';
 
 @Component({
@@ -12,10 +13,17 @@ import { SittersService } from '../../services/sitters.service';
 })
 export class SearchSitterComponent implements OnInit, AfterViewInit, OnDestroy {
 
-  constructor( private sittersService: SittersService ) { }
+  constructor( 
+    private sittersService: SittersService,
+    private placesService: PlacesService
+  ) { }
   // sitters: any[] = [];
   // toggle = true;
   page = 4;
+
+  get isUserLocationReady() {
+    return this.placesService.isUserLocationReady;
+  }
 
   @ViewChild('map') divMap!: ElementRef
   map!: mapboxgl.Map;

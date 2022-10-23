@@ -12,6 +12,6 @@ export class AppComponent implements OnInit {
   title = 'sprint-9-pets-app';
 
   ngOnInit(): void {
-    (mapboxgl as any).accessToken = environment.mapboxToken;
+    (mapboxgl as any).accessToken = environment.apiKey;
   }
 }
