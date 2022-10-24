@@ -2,7 +2,7 @@
        <input type="text" class="form-control rounded-pill shadow-lg border-0"
               placeholder="Search by postal code or city" 
               #txtQuery 
-              (keyup)="onQueryChanged(txtQuery.value)"
+              (keypress)="onQueryChanged(txtQuery.value)"
               autocomplete="off"
               id="formGroupExampleInput" />
        <img class="input-box-icon me-2" src="assets/img/illustrations/search.png" width="30" alt="" />

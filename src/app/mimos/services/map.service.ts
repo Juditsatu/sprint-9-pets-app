@@ -25,7 +25,7 @@ export class MapService {
     if (!this.isMapReady) throw Error('Map is not ready');
 
     this.map?.flyTo({
-      zoom: 14,
+      zoom: 18,
       center: coords
     });
     

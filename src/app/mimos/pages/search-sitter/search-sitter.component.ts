@@ -1,10 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
-import * as mapboxgl from 'mapbox-gl';
 
 import { UserSitter } from '../../interfaces/user-sitter';
-import { PlacesService } from '../../services';
-import { SittersService } from '../../services/sitters.service';
 
 @Component({
   selector: 'app-search-sitter',
@@ -13,23 +10,10 @@ import { SittersService } from '../../services/sitters.service';
 })
 export class SearchSitterComponent implements OnInit {
 
-  constructor( 
-    private sittersService: SittersService,
-    private placesService: PlacesService
-  ) { }
+  constructor() { }
   // sitters: any[] = [];
-  // toggle = true;
+
   page = 4;
-
-  get isUserLocationReady() {
-    return this.placesService.isUserLocationReady;
-  }
-
-  // @ViewChild('map') divMap!: ElementRef
-  // map!: mapboxgl.Map;
-  // zoomLevel: number = 15;
-  // center: [number, number] = [2.176333014914384, 41.404311707558456];
-
   ngOnInit(): void {
     // this.getSitters();
   }
@@ -42,43 +26,6 @@ export class SearchSitterComponent implements OnInit {
     console.log('form de filter a buscador', this.formValue)
   }
 
-  // ngOnDestroy(): void {
-  //   this.map.off('zoom', () => {});
-  //   this.map.off('zoomend', () => {});
-  //   this.map.off('move', () => {});
-  // }
-
-  // ngAfterViewInit(): void {
-
-  //   this.map = new mapboxgl.Map({
-  //     container: this.divMap.nativeElement,
-  //     style: 'mapbox://styles/juditsatu/cl8txlq4b00h916pi3v5j6qnw',
-  //     center: this.center,
-  //     zoom: this.zoomLevel,
-  //     scrollZoom: false
-  //   });
-
-  //   //set current zoom number
-  //   this.map.on('zoom', () => {
-  //     // this.zoomLevel = this.map.getZoom();
-  //     if (this.map.getZoom() < 14) {
-  //       this.map.zoomTo(14);
-  //     }
-  //   });
-
-  //   //limit max zoom
-  //   this.map.on('zoomend', () => {
-  //     if (this.map.getZoom() > 17) {
-  //       this.map.zoomTo(17);
-  //     }
-  //   });
-
-  //   this.map.on('move', (event) => {
-  //     const target = event.target;
-  //     const { lng, lat } = target.getCenter();
-  //     this.center = [lng, lat];
-  //   })
-  // }
   saveFavorite(index: number) {
     this.userSittersData[index].like = !this.userSittersData[index].like;
   }
@@ -100,15 +47,6 @@ export class SearchSitterComponent implements OnInit {
   //       }
   //     })
   // }
-
-  // zoomOut() {
-  //   this.map.zoomOut();
-  // }
-
-  // zoomIn(){
-  //   this.map.zoomIn();
-  // }
-
 
   userSittersData: UserSitter[] = [
     {
