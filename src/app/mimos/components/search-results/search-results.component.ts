@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Feature } from '../../interfaces/places';
 import { MapService, PlacesService } from '../../services';
 
@@ -13,35 +14,23 @@ export class SearchResultsComponent {
 
   constructor( 
     private placesService: PlacesService, 
-    private mapService: MapService 
+    private mapService: MapService,
+    private router: Router 
   ) { }
-
-  get isLoadingPlaces(): boolean {
-    return this.placesService.isLoadingPlaces;
-  }
 
   get places(): Feature[] {
     return this.placesService.places;
   }
 
   flyTo(place: Feature) {
+
+    this.router.navigateByUrl('/search');
+
     this.selectedId = place.id;
 
     const [ lng, lat ] = place.center;
     this.mapService.flyTo([lng, lat])
 
-  }
-
-  getDirections(place: Feature) {
-
-    if (!this.placesService.userLocation) throw Error('There is not user location');
-
-    this.placesService.deletePlaces();
-
-    const start = this.placesService.userLocation;
-    const end = place.center as [number, number];
-
-    this.mapService.getRouteBetweenPoints(start, end)
   }
 
 }

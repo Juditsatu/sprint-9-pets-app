@@ -10,7 +10,6 @@ export class PlacesService {
 
   public userLocation: [number, number] | undefined;
 
-  public isLoadingPlaces: boolean = false;
   public places: Feature[] = [];
 
   get isUserLocationReady(): boolean {
@@ -45,14 +44,12 @@ export class PlacesService {
   getPlacesByQuery( query: string = '' ) {
     //evaluar quan el query es null
     if (query.length === 0) {
-      this.isLoadingPlaces = false;
       this.places = [];
-      return
+      return;
     }
 
     if (!this.userLocation) throw Error('There is not user location')
 
-    this.isLoadingPlaces = true;
 
     this.placesApi.get<PlacesResponse>(`/${ query }.json`, {
       params: {
@@ -60,7 +57,6 @@ export class PlacesService {
       }
     })
       .subscribe( res => {
-        this.isLoadingPlaces = false;
         this.places = res.features;
 
         this.mapService.createMarkersFromPlaces(this.places, this.userLocation!)
