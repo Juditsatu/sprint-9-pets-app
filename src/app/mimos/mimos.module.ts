@@ -14,6 +14,7 @@ import { FilterComponent } from './components/filter/filter.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
+import { MapComponent } from './components/map/map.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { SearchResultsComponent } from './components/search-results/search-resul
     AboutComponent,
     FilterComponent,
     SearchBarComponent,
-    SearchResultsComponent
+    SearchResultsComponent,
+    MapComponent
   ],
   imports: [
     CommonModule,

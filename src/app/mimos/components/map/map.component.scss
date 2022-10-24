@@ -1,0 +1,24 @@
+.map-container {
+  position: sticky;
+  top: 84px;
+  height: 100vh;
+  overflow: hidden;
+  width: 100%;
+}
+
+.map-buttons {
+  position: fixed;
+  padding: 20px 20px;
+  z-index: 1;
+}
+
+.zoom {
+  border: 1px solid #e94842;
+  background: #fffbfa;
+  color: #e38368;
+}
+.zoom:hover {
+  border: 1px solid #e94842;
+  background: #fff;
+  color: #e94842;
+}
