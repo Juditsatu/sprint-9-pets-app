@@ -16,12 +16,12 @@
     <app-search-results></app-search-results>
     <!-- /search bar -->
 
-    <div class="px-3">
-      <div class="card my-3" *ngFor="let user of sitters; let i = index">
-        <button class="btn btn-outline-primary favorite m-3" (click)="saveFavorite(i)">
+    <div class="px-3" *ngFor="let user of sitters; let i = index">
+      <div class="card my-3" *ngIf="sitters[i].isSitter"  >
+        <button  class="btn btn-outline-primary favorite m-3" (click)="saveFavorite(i)">
           <i [class]="getClassCSS(i)"></i>
         </button>
-        <div class="row g-0" *ngIf="sitters[i].isSitter">
+        <div class="row g-0">
           <div class="col-4 p-3 align-self-center" routerLink="">
             <img src="{{ user.imgUrl }}" class="img-fluid" alt="username">
           </div>
@@ -45,8 +45,8 @@
           </div>
         </div>
       </div>
-      <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination" class="d-flex justify-content-center"></ngb-pagination>
     </div>
+    <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination" class="d-flex justify-content-center"></ngb-pagination>
   </div>
   <!-- /search results -->
 
