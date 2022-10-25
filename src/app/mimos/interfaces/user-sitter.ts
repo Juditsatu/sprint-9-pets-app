@@ -1,13 +1,21 @@
 export interface UserSitter {
-  profilePicture:   string;
-  name:             string;
-  titleDesc:        string;
-  desc:             string;
-  address:          string;
-  verifiedUser:     boolean;
-  price:            number;
-  dogSitter?:       boolean;
-  catSitter?:       boolean;
-  rating?:          number;
-  like?:            boolean;
+  _id:         string;
+  name:        string;
+  email:       string;
+  password:    string;
+  favorites:   any[];
+  isSitter:    boolean;
+  address:     string;
+  postalCode:  string;
+  city:        string;
+  coords:      number[];
+  title:       string;
+  desc:        string;
+  price:       number;
+  serviceTime: number;
+  catType:     boolean;
+  dogType:     boolean;
+  like:        boolean;
+  imgUrl?:     string;
+  __v:         number;
 }

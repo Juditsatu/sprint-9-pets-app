@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { UserSitter } from '../../interfaces/user-sitter';
+import { SittersService } from '../../services';
 
 @Component({
   selector: 'app-search-sitter',
@@ -10,12 +11,12 @@ import { UserSitter } from '../../interfaces/user-sitter';
 })
 export class SearchSitterComponent implements OnInit {
 
-  constructor() { }
-  // sitters: any[] = [];
+  constructor( private sittersService: SittersService) { }
+  sitters: UserSitter[] = [];
 
   page = 1;
   ngOnInit(): void {
-    // this.getSitters();
+    this.getSitters();
   }
 
   //Get value from filter component
@@ -27,148 +28,25 @@ export class SearchSitterComponent implements OnInit {
   }
 
   saveFavorite(index: number) {
-    this.userSittersData[index].like = !this.userSittersData[index].like;
+    this.sitters[index].like = !this.sitters[index].like;
   }
 
   getClassCSS(index: number): string {
-    return this.userSittersData[index].like ? 'bi bi-heart-fill red' : 'bi bi-heart red'
+    return this.sitters[index].like ? 'bi bi-heart-fill red' : 'bi bi-heart red'
   }
 
-  // getSitters() {
-  //   this.sittersService.getAllSitters()
-  //     .subscribe({
-  //       next: (response: any) => {
-  //         this.sitters = response.data;
-          
-  //         console.log('info sitter',this.sitters)
-  //       },
-  //       error: (err) => {
-  //         console.log(err)
-  //       }
-  //     })
-  // }
+  getSitters() {
+    this.sittersService.getAllSitters()
+      .subscribe({
+        next: (response: UserSitter[]) => {
 
-  userSittersData: UserSitter[] = [
-    {
-      profilePicture:   '/assets/img/gallery/user-card-1.png',
-      name:             'Anna',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     true,
-      price:            15,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-2.png',
-      name:             'Núria',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     false,
-      price:            18,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-3.png',
-      name:             'Fernando',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     true,
-      price:            22,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-1.png',
-      name:             'Sofía',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     true,
-      price:            20,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-2.png',
-      name:             'Raquel',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     true,
-      price:            23,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-3.png',
-      name:             'Albert',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     false,
-      price:            12,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-1.png',
-      name:             'Anna',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     true,
-      price:            30,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-2.png',
-      name:             'Núria',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     false,
-      price:            12,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-3.png',
-      name:             'Fernando',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     true,
-      price:            15,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-1.png',
-      name:             'Sofía',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     true,
-      price:            28,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-2.png',
-      name:             'Raquel',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     true,
-      price:            17,
-      like:             false
-    },
-    {
-      profilePicture:   '/assets/img/gallery/user-card-3.png',
-      name:             'Albert',
-      titleDesc:        'Caring, loving and friendly',
-      desc:             'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam, dolorum explicabo, quo quos fuga animi expedita voluptatum culpa nisi facere recusandae rem? Vero deleniti distinctio ullam suscipit culpa fugiat est.',
-      address:          'Barcelona, 08002',
-      verifiedUser:     false,
-      price:            18,
-      like:             false
-    },
-  ]
+          this.sitters = response
+
+        },
+        error: (err) => {
+          console.log(err)
+        }
+      })
+  }
 
 }

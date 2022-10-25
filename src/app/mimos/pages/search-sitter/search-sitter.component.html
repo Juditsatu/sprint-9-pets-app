@@ -17,23 +17,22 @@
     <!-- /search bar -->
 
     <div class="px-3">
-      <div class="card my-3" *ngFor="let user of userSittersData; let i = index">
+      <div class="card my-3" *ngFor="let user of sitters; let i = index">
         <button class="btn btn-outline-primary favorite m-3" (click)="saveFavorite(i)">
           <i [class]="getClassCSS(i)"></i>
         </button>
-        <div class="row g-0">
+        <div class="row g-0" *ngIf="sitters[i].isSitter">
           <div class="col-4 p-3 align-self-center" routerLink="">
-            <img [src]="user.profilePicture" class="img-fluid" alt="username">
+            <img src="{{ user.imgUrl }}" class="img-fluid" alt="username">
           </div>
           <div class="col-8">
             <div class="card-body">
               <a routerLink="" class="h4">{{ user.name }}</a>
-              <i *ngIf="user.verifiedUser" title="Verified User" class="bi bi-shield-fill-check px-2"></i>
               <p class="card-text">
-                {{ user.titleDesc }}
+                {{ user.title }}
                 <br>
                 <span class="card-address">
-                  {{ user.address }}
+                  {{ user.postalCode }}, {{ user.city }}
                 </span>
                 
               </p>
@@ -44,16 +43,6 @@
                   <div class="badge bg-secondary text-nowrap text-primary"> <span class="h5">0 € </span> with service time</div>
             </div>
           </div>
-          <!-- <div class="col-3">
-            <div class="p-3">
-              <span class="card-text">from</span>
-              <h3> {{ user.price }} € </h3>
-              <button class="btn btn-outline-primary favorite" (click)="saveFavorite(i)">
-                <i [class]="getClassCSS(i)"></i>
-              </button>
-            </div>
-
-          </div> -->
         </div>
       </div>
       <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination" class="d-flex justify-content-center"></ngb-pagination>
