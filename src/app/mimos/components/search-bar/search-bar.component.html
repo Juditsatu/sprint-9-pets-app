@@ -3,6 +3,6 @@
        <input type="text" 
               placeholder="Postcode or Address"
               #txtQuery 
-              (keypress)="onQueryChanged(txtQuery.value)"
+              (keyup)="onQueryChanged(txtQuery.value)"
               autocomplete="off" />
 </div>

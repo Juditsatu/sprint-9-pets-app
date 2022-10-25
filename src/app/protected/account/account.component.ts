@@ -12,4 +12,12 @@ export class AccountComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  userName: string = ''
+  
+  userIsLogged() {
+    if (localStorage.getItem('token')) {
+      this.userName = localStorage.getItem('user')!;
+    }
+  }
+
 }

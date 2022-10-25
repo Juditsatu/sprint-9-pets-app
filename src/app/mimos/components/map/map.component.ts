@@ -14,7 +14,7 @@ export class MapComponent implements AfterViewInit {
   @ViewChild('mapDiv')
   mapDivElement!: ElementRef
 
-  center: [number, number] = [2.185063, 41.430795];
+  center: [number, number] = [2.178, 41.397];
 
   constructor( 
     private mapService: MapService 

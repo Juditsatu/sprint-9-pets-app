@@ -24,7 +24,7 @@ export class SearchResultsComponent {
 
   flyTo(place: Feature) {
 
-    this.router.navigateByUrl('/search');
+    // this.router.navigateByUrl('/search');
 
     this.selectedId = place.id;
 

@@ -23,10 +23,6 @@ export class NavbarComponent implements OnInit {
   public isLogged = false;
 
   userName: string = ''
-
-  // get user() {
-  //   return this.authService.auth;
-  // }
   
   userIsLogged() {
     if (localStorage.getItem('token')) {
@@ -39,24 +35,5 @@ export class NavbarComponent implements OnInit {
     this.isLogged = false;
     this.authService.logout();
   }
-
-  // menuItems: MenuItem[] = [
-  //   {
-  //     route: '/search',
-  //     name: '<i class="bi bi-search"></i> Search sitters'
-  //   },
-  //   {
-  //     route: '/about',
-  //     name: 'About'
-  //   },
-  //   // {
-  //   //   route: '/member/login',
-  //   //   name: 'Log In'
-  //   // },
-  //   // {
-  //   //   route: '/member/signup',
-  //   //   name: 'Sign Up'
-  //   // }
-  // ]
 
 }
