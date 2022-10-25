@@ -8,6 +8,12 @@
   text-decoration: none;
 }
 
+@media (min-width: 992px) {
+  .navbar {
+    max-height: 76px;
+  }
+}
+
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -46,16 +52,6 @@
 
 .navbar-light .navbar-toggler-icon {
   background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%280, 0, 0, 0.95%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M0 6h30M0 14h30M0 22h30'/%3E%3C/svg%3E");
-}
-
-.btn-outline-primary {
-  border-color: transparent;
-}
-
-.btn-outline-primary:hover {
-  border-color: transparent;
-  color: #442953;
-  background-color: #f5f4f9;
 }
 
 .shadow-transition {
@@ -101,4 +97,14 @@
   width: 32px;
   border-radius: 100%;
   object-fit: cover;
+}
+
+.btn-outline-primary {
+  border-color: transparent;
+}
+
+.btn-outline-primary:hover {
+  border-color: transparent;
+  color: #e94842;
+  background-color: transparent;
 }

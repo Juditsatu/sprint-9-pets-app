@@ -7,9 +7,15 @@
 
   <!-- search results -->
   <div class="col-12 col-lg-5">
-    <div class="row my-3 d-flex justify-content-center">
+
+    <!-- search bar -->
+    <div class="p-3 pb-0">
       <app-search-bar></app-search-bar>
+      <span class="horizontal-line"></span>
     </div>
+    <app-search-results></app-search-results>
+    <!-- /search bar -->
+
     <div class="px-3">
       <div class="card my-3" *ngFor="let user of userSittersData; let i = index">
         <button class="btn btn-outline-primary favorite m-3" (click)="saveFavorite(i)">
@@ -29,8 +35,13 @@
                 <span class="card-address">
                   {{ user.address }}
                 </span>
+                
               </p>
-              <p class="card-text hidden-mobile">{{ user.desc | truncate:[120, '...'] }}</p>
+              <p class="card-text hidden-mobile">{{ user.desc | truncate:[100, '...'] }}</p>
+
+                  <span class="h5">{{ user.price }} €</span>
+                  <span> or </span>
+                  <div class="badge bg-secondary text-nowrap text-primary"> <span class="h5">0 € </span> with service time</div>
             </div>
           </div>
           <!-- <div class="col-3">
@@ -56,4 +67,5 @@
     <app-map></app-map>
     
   </div>
+  <!-- /map -->
 </div>

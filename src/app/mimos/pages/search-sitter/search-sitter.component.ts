@@ -13,7 +13,7 @@ export class SearchSitterComponent implements OnInit {
   constructor() { }
   // sitters: any[] = [];
 
-  page = 4;
+  page = 1;
   ngOnInit(): void {
     // this.getSitters();
   }

@@ -47,7 +47,8 @@
         <li class="nav-item">
           <a class="nav-link fw-medium" 
              routerLink="/search">
-             <i class="bi bi-search"></i> Search sitters
+             <!-- <i class="bi bi-search"></i> -->
+              Search sitters
           </a>
         </li>
         <li class="nav-item">
@@ -68,15 +69,15 @@
       </div>
 
       <div *ngIf="isLogged" ngbDropdown class="d-none d-lg-inline">
-        <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+        <button type="button" class="btn btn-outline-primary px-2" ngbDropdownToggle>
           <img src="../assets/img/gallery/user-card-1.png" alt="user-avatar" class="img-fluid" height="100" width=100
             id="uploadedAvatar" />
           <span class=""> {{ userName }} </span>
         </button>
-        <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropdown-menu-end">
           <button ngbDropdownItem routerLink="/account">Account</button>
           <button ngbDropdownItem routerLink="/favorites">Favorites</button>
-          <button ngbDropdownItem routerLink="/">Points</button>
+          <p ngbDropdownItem> <span class="badge bg-secondary text-nowrap text-primary">12</span> Service Time</p>
           <hr>
           <button ngbDropdownItem (click)="logout()"><i class="bi bi-power"></i> LOG OUT</button>
         </div>

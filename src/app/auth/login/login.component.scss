@@ -71,22 +71,6 @@ input[type="password"]:hover::placeholder {
   color: #000;
 }
 
-input[type="submit"] {
-  background-color: #000;
-  color: #fff;
-  padding: 10px;
-  font-size: 1.3rem;
-  cursor: pointer;
-  border: none;
-  transition: all 0.3s ease;
-  border-radius: 15px;
-}
-
-input[type="submit"]:hover {
-  background-color: #eee;
-  color: #000;
-}
-
 a {
   color: #424242;
   text-decoration: none;

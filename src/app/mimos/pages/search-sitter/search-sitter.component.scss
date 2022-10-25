@@ -37,7 +37,7 @@
 }
 
 .card:hover {
-  border: 1px solid #E94842;
+  border: 1px solid #e94842;
   background: #fff;
   box-shadow: 0px 10px 30px 0px rgba(133, 66, 189, 0.1);
 }
@@ -67,29 +67,35 @@
 }
 
 .favorite i:hover {
-  color: #E94842;
+  color: #e94842;
 }
 
 .red {
-  color: #E94842;
+  color: #e94842;
 }
 
 .light-red {
-  color: #F5D5C3;
+  color: #f5d5c3;
 }
 
 .favorite {
   position: absolute;
   align-self: flex-end;
   border-radius: 100%;
-  border: 1px solid #F5D5C3;
+  border: 1px solid #f5d5c3;
 }
 
 .favorite:hover {
   background-color: #fff9f4;
-  border: 1px solid #F5D5C3;
+  border: 1px solid #f5d5c3;
 }
 
 .bi-shield-fill-check {
-  color: #40975F;
+  color: #40975f;
+}
+
+.horizontal-line {
+  display: flex;
+  width: 100%;
+  border-top: solid 1px #d7d7d7;
 }
