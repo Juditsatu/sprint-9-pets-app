@@ -4826,7 +4826,7 @@ fieldset:disabled .btn {
 .page-link {
   position: relative;
   display: block;
-  color: #1F3A63;
+  color: #442953;
   background-color: #fff;
   border: 1px solid #E1E0E4;
   -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
@@ -4846,7 +4846,7 @@ fieldset:disabled .btn {
 
 .page-link:hover {
   z-index: 2;
-  color: #192e4f;
+  color: #442953;
   text-decoration: none;
   background-color: #EBEBED;
   border-color: #E1E0E4;
@@ -4854,7 +4854,7 @@ fieldset:disabled .btn {
 
 .page-link:focus {
   z-index: 3;
-  color: #192e4f;
+  color: #442953;
   background-color: #EBEBED;
   outline: 0;
   -webkit-box-shadow: 0 0 0 0.25rem rgba(31, 58, 99, 0.25);
@@ -4868,8 +4868,8 @@ fieldset:disabled .btn {
 .page-item.active .page-link {
   z-index: 3;
   color: #fff;
-  background-color: #1F3A63;
-  border-color: #1F3A63;
+  background-color: #442953;
+  border-color: #442953;
 }
 
 .page-item.disabled .page-link {
@@ -8854,7 +8854,7 @@ fieldset:disabled .btn {
 }
 
 .text-primary {
-  color: #1F3A63 !important;
+  color: #442953 !important;
 }
 
 .text-secondary {

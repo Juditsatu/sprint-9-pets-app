@@ -1,12 +1,11 @@
 <div class="horizontal-layout d-lg-flex">
   <!-- sidebar filter -->
-  <aside class="col-12 col-lg-2">
+  <aside class="col-12 col-lg-4 col-xl-2">
     <app-filter (formValue)="filters($event)"></app-filter>
   </aside>
   <!-- /sidebar filter -->
 
-  <!-- search results -->
-  <div class="col-12 col-lg-5">
+  <div class="col-12 col-lg-8 col-xl-5">
 
     <!-- search bar -->
     <div class="p-3 pb-0">
@@ -16,42 +15,53 @@
     <app-search-results></app-search-results>
     <!-- /search bar -->
 
-    <div class="px-3" *ngFor="let user of sitters; let i = index">
-      <div class="card my-3" *ngIf="sitters[i].isSitter"  >
-        <button  class="btn btn-outline-primary favorite m-3" (click)="saveFavorite(i)">
-          <i [class]="getClassCSS(i)"></i>
-        </button>
-        <div class="row g-0">
-          <div class="col-4 p-3 align-self-center" routerLink="">
-            <img src="{{ user.imgUrl }}" class="img-fluid" alt="username">
-          </div>
-          <div class="col-8">
-            <div class="card-body">
-              <a routerLink="" class="h4">{{ user.name }}</a>
-              <p class="card-text">
-                {{ user.title }}
-                <br>
-                <span class="card-address">
-                  {{ user.postalCode }}, {{ user.city }}
-                </span>
-                
-              </p>
-              <p class="card-text hidden-mobile">{{ user.desc | truncate:[100, '...'] }}</p>
+    <!-- loading spinner -->
+    <div class="text-center m-5" *ngIf="!loading; else divSitters">
+      <div class="spinner-grow red" role="status">
+        <span class="visually-hidden">Loading...</span>
+      </div>
+    </div>
+    <!-- /loading spinner -->
 
-                  <span class="h5">{{ user.price }} €</span>
-                  <span> or </span>
-                  <div class="badge bg-secondary text-nowrap text-primary"> <span class="h5">0 € </span> with service time</div>
+    <!-- search results -->
+    <ng-template #divSitters>
+      <div class="px-3" *ngFor="let user of sitters; let i = index">
+        <div class="card my-3" *ngIf="sitters[i].isSitter"  >
+          <button  class="btn btn-outline-primary favorite m-3" (click)="saveFavorite(i)">
+            <i [class]="getClassCSS(i)"></i>
+          </button>
+          <div class="row g-0">
+            <div class="col-4 p-3 align-self-center" routerLink="">
+              <img src="{{ user.imgUrl }}" class="img-fluid" alt="username">
+            </div>
+            <div class="col-8">
+              <div class="card-body">
+                <a routerLink="" class="h4">{{ user.name }}</a>
+                <p class="card-text">
+                  {{ user.title }}
+                  <br>
+                  <span class="card-address">
+                    {{ user.postalCode }}, {{ user.city }}
+                  </span>
+                  
+                </p>
+                <p class="card-text hidden-mobile">{{ user.desc | truncate:[100, '...'] }}</p>
+  
+                    <span class="h5">{{ user.price }} €</span>
+                    <span> or </span>
+                    <div class="badge bg-secondary text-nowrap text-primary"> <span class="h5">0 € </span> with service time</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </ng-template>
     <ngb-pagination [collectionSize]="70" [(page)]="page" aria-label="Default pagination" class="d-flex justify-content-center"></ngb-pagination>
   </div>
   <!-- /search results -->
 
   <!-- map -->
-  <div class="d-none d-lg-block col-lg-5">
+  <div class="d-none d-xl-block col-xl-5">
     
     <app-map></app-map>
     

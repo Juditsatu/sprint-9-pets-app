@@ -12,9 +12,12 @@ import { SittersService } from '../../services';
 export class SearchSitterComponent implements OnInit {
 
   constructor( private sittersService: SittersService) { }
+
   sitters: UserSitter[] = [];
 
   page = 1;
+  loading: boolean = false;
+
   ngOnInit(): void {
     this.getSitters();
   }
@@ -39,6 +42,10 @@ export class SearchSitterComponent implements OnInit {
     this.sittersService.getAllSitters()
       .subscribe({
         next: (response: UserSitter[]) => {
+
+          if (response) {
+            this.loading = true;
+          }
 
           this.sitters = response
 
