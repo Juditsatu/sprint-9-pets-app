@@ -63,9 +63,17 @@ export class SearchSitterComponent implements OnInit {
       })
   }
 
-  // getMyLocation() {
-  //   this.placesService.getUserLocation;
-  //   console.log(this.placesService.userLocation)
-  // }
+  loadingArray: Array<String> = [
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    '',
+    ''
+  ]
 
 }
