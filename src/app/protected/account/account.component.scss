@@ -10,3 +10,11 @@
   object-position: center;
   object-fit: cover;
 }
+
+.nav-link {
+  color: #442953;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #442953;
+}

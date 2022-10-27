@@ -11,6 +11,7 @@
     <div class="p-3 pb-0">
       <app-search-bar></app-search-bar>
       <span class="horizontal-line"></span>
+      <!-- <button class="btn btn-outline-secondary" (click)="getMyLocation()"><i class="bi bi-geo"></i>Search in my area</button> -->
     </div>
     <app-search-results></app-search-results>
     <!-- /search bar -->
@@ -61,10 +62,18 @@
   <!-- /search results -->
 
   <!-- map -->
-  <div class="d-none d-xl-block col-xl-5">
-    
-    <app-map></app-map>
+  <div class="d-none d-xl-block col-xl-5" *ngIf="!isUserLocationReady; else mapReady">
+      
+    <app-loading-map></app-loading-map>
     
   </div>
+
+  <ng-template #mapReady>
+    <div class="d-none d-xl-block col-xl-5">
+      
+      <app-map></app-map>
+      
+    </div>
+  </ng-template>
   <!-- /map -->
 </div>

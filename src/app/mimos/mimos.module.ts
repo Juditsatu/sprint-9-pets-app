@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { SearchResultsComponent } from './components/search-results/search-results.component';
 import { MapComponent } from './components/map/map.component';
+import { LoadingMapComponent } from './components/loading-map/loading-map.component';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MapComponent } from './components/map/map.component';
     FilterComponent,
     SearchBarComponent,
     SearchResultsComponent,
-    MapComponent
+    MapComponent,
+    LoadingMapComponent
   ],
   imports: [
     CommonModule,

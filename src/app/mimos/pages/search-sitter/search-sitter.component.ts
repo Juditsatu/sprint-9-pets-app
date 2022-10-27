@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import { UserSitter } from '../../interfaces/user-sitter';
-import { SittersService } from '../../services';
+import { PlacesService, SittersService } from '../../services';
 
 @Component({
   selector: 'app-search-sitter',
@@ -11,7 +11,10 @@ import { SittersService } from '../../services';
 })
 export class SearchSitterComponent implements OnInit {
 
-  constructor( private sittersService: SittersService) { }
+  constructor( 
+    private sittersService: SittersService,
+    private placesService: PlacesService
+    ) { }
 
   sitters: UserSitter[] = [];
 
@@ -20,6 +23,10 @@ export class SearchSitterComponent implements OnInit {
 
   ngOnInit(): void {
     this.getSitters();
+  }
+
+  get isUserLocationReady() {
+    return this.placesService.isUserLocationReady;
   }
 
   //Get value from filter component
@@ -55,5 +62,10 @@ export class SearchSitterComponent implements OnInit {
         }
       })
   }
+
+  // getMyLocation() {
+  //   this.placesService.getUserLocation;
+  //   console.log(this.placesService.userLocation)
+  // }
 
 }
