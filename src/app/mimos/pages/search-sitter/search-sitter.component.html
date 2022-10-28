@@ -11,9 +11,7 @@
     <div class="p-3 pb-0">
       <app-search-bar></app-search-bar>
       <span class="horizontal-line"></span>
-      <!-- <button class="btn btn-outline-secondary" (click)="getMyLocation()"><i class="bi bi-geo"></i>Search in my area</button> -->
     </div>
-    <app-search-results></app-search-results>
     <!-- /search bar -->
 
   
@@ -31,12 +29,12 @@
     <!-- search results -->
     <ng-template #divSitters>
       <div class="px-3" *ngFor="let user of sitters; let i = index">
-          <div class="card my-3" *ngIf="sitters[i].isSitter"  >
+          <div class="card my-3 animate__animated animate__fadeIn animate__faster" *ngIf="sitters[i].isSitter" >
             <button  class="btn btn-outline-primary favorite m-3" (click)="saveFavorite(i)">
               <i [class]="getClassCSS(i)"></i>
             </button>
             <div class="row g-0">
-              <div class="col-4 p-3 align-self-center" routerLink="">
+              <div class="col-4 p-3 d-flex justify-content-center align-self-center" routerLink="">
                 <img src="{{ user.imgUrl }}" class="img-fluid" alt="username">
               </div>
               <div class="col-8">
@@ -48,13 +46,12 @@
                     <span class="card-address">
                       {{ user.postalCode }}, {{ user.city }}
                     </span>
-                    
                   </p>
                   <p class="card-text hidden-mobile">{{ user.desc | truncate:[100, '...'] }}</p>
     
-                      <span class="h5">{{ user.price }} €</span>
-                      <span> or </span>
-                      <div class="badge bg-secondary text-nowrap text-primary"> <span class="h5">0 € </span> with service time</div>
+                  <span class="h5">{{ user.price }} €</span>
+                  <span> or </span>
+                  <div class="badge bg-secondary text-nowrap text-primary"> <span class="h5">0 € </span> with service time</div>
                 </div>
               </div>
             </div>

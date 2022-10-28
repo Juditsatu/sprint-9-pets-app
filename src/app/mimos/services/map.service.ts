@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
+
 import { LngLatBounds, LngLatLike, Map, Marker, Popup } from 'mapbox-gl';
+
 import { Feature } from '../interfaces/places';
 
 @Injectable({
@@ -66,6 +67,10 @@ export class MapService {
       padding: 200
     })
 
+  }
+
+  removeMarkers() {
+    this.markers.forEach( marker => marker.remove());
   }
 
 }

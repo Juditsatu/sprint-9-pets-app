@@ -1,6 +1,12 @@
-<ul class="list-group mt-2">
+<div *ngIf="isLoadingPlaces"
+     class="alert alert-primary mt-2 text-center">
+    <h6>Loading</h6>
+    <span>Wait please...</span>
+</div>
+
+<ul *ngIf="places.length > 0;"  class="list-group mt-2 animate__animated animate__fadeIn animate__faster">
     <li *ngFor="let place of places"
-        class="list-group-item pointer pb-0 mx-3"
+        class="list-group-item pointer pb-0 px-3"
         (click)="flyTo(place)">
         <h6> {{ place.text_es }} </h6>
     </li>

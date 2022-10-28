@@ -10,6 +10,7 @@ export class PlacesService {
 
   public userLocation: [number, number] | undefined;
 
+  public isLoadingPlaces: boolean = false;
   public places: Feature[] = [];
 
   get isUserLocationReady(): boolean {

@@ -1,10 +1,8 @@
 .list-group {
     position: absolute;
     z-index: 99;
-}
-
-.list-group-item {
-   width: 100%;
+    width: 416px;
+    
 }
 
 .pointer {

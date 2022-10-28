@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { NgbRatingConfig } from '@ng-bootstrap/ng-bootstrap';
 
 import { UserSitter } from '../../interfaces/user-sitter';
 import { PlacesService, SittersService } from '../../services';
@@ -13,8 +14,12 @@ export class SearchSitterComponent implements OnInit {
 
   constructor( 
     private sittersService: SittersService,
-    private placesService: PlacesService
-    ) { }
+    private placesService: PlacesService,
+    config: NgbRatingConfig
+    ) {
+      config.max = 5;
+	    config.readonly = true;
+     }
 
   sitters: UserSitter[] = [];
 
