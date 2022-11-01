@@ -16,7 +16,7 @@ export class SearchSitterComponent implements OnInit {
     private sittersService: SittersService,
     private placesService: PlacesService,
     config: NgbRatingConfig
-    ) {
+    ) { //rating coming soon...
       config.max = 5;
 	    config.readonly = true;
      }

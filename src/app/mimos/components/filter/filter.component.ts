@@ -7,7 +7,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./filter.component.scss']
 })
 export class FilterComponent {
-[x: string]: any;
 
   constructor( private fb: FormBuilder ) { }
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { Feature } from '../../interfaces/places';
 import { MapService, PlacesService } from '../../services';
 
@@ -14,7 +15,8 @@ export class SearchResultsComponent {
 
   constructor( 
     private placesService: PlacesService, 
-    private mapService: MapService
+    private mapService: MapService,
+    private router: Router
   ) { }
 
   get isLoadingPlaces(): boolean {
@@ -26,6 +28,7 @@ export class SearchResultsComponent {
   }
 
   flyTo(place: Feature) {
+    this.router.navigateByUrl('/search');
     this.places.length = 0;
 
     this.selectedId = place.id;
